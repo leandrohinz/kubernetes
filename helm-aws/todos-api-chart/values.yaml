@@ -1,0 +1,77 @@
+# Default values for todos-api-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+namespaceName: ns-todo-app-k8s-local-helm
+
+appName: todos-api
+
+replicaCount: 2
+
+containerPort: 8082
+
+envVar1: TODO_API_PORT
+valueVar1: 8082
+
+envVar2: JWT_SECRET
+valueVar2: foo
+
+envVar3: REDIS_HOST
+valueVar3: redis-service.ns-todo-app-k8s-local-helm.svc.cluster.local
+
+envVar4: REDIS_PORT
+valueVar4: 6379
+
+envVar5: REDIS_CHANNEL
+valueVar5: log_channel
+
+image:
+  repository: leandrohinz/todos-api
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+service:
+  type: NodePort
+  port: 8082
+  protocol: TCP
+  targetPort: 8082
+  nodePort: 30003
+
+# resources: {}
+#   # We usually recommend not to specify default resources and to leave this as a conscious
+#   # choice for the user. This also increases chances charts run on environments with little
+#   # resources, such as Minikube. If you do want to specify resources, uncomment the following
+#   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+#   # limits:
+#   #   cpu: 100m
+#   #   memory: 128Mi
+#   # requests:
+#   #   cpu: 100m
+#   #   memory: 128Mi
+
+# autoscaling:
+#   enabled: false
+#   minReplicas: 1
+#   maxReplicas: 100
+#   targetCPUUtilizationPercentage: 80
+#   # targetMemoryUtilizationPercentage: 80
+
+# # Additional volumes on the output Deployment definition.
+# volumes: []
+# # - name: foo
+# #   secret:
+# #     secretName: mysecret
+# #     optional: false
+
+# # Additional volumeMounts on the output Deployment definition.
+# volumeMounts: []
+# # - name: foo
+# #   mountPath: "/etc/foo"
+# #   readOnly: true
+
+# nodeSelector: {}
+
+# tolerations: []
+
+# affinity: {}

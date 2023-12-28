@@ -1,0 +1,71 @@
+# Default values for auth-api-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+namespaceName: leandrohinestroza
+
+appName: auth-api
+
+replicaCount: 2
+
+containerPort: 8080
+
+envVar1: AUTH_API_PORT
+valueVar1: 8000
+
+envVar2: USERS_API_ADDRESS
+valueVar2: http://users-api-service.leandrohinestroza.svc.cluster.local:8083
+
+envVar3: JWT_SECRET
+valueVar3: foo
+
+image:
+  repository: leandrohinz/auth-api
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+service:
+  type: NodePort
+  port: 8000
+  protocol: TCP
+  targetPort: 8000
+  nodePort: 30000
+
+# resources: {}
+#   # We usually recommend not to specify default resources and to leave this as a conscious
+#   # choice for the user. This also increases chances charts run on environments with little
+#   # resources, such as Minikube. If you do want to specify resources, uncomment the following
+#   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+#   # limits:
+#   #   cpu: 100m
+#   #   memory: 128Mi
+#   # requests:
+#   #   cpu: 100m
+#   #   memory: 128Mi
+
+# autoscaling:
+#   enabled: false
+#   minReplicas: 1
+#   maxReplicas: 100
+#   targetCPUUtilizationPercentage: 80
+#   # targetMemoryUtilizationPercentage: 80
+
+# # Additional volumes on the output Deployment definition.
+# volumes: []
+# # - name: foo
+# #   secret:
+# #     secretName: mysecret
+# #     optional: false
+
+# # Additional volumeMounts on the output Deployment definition.
+# volumeMounts: []
+# # - name: foo
+# #   mountPath: "/etc/foo"
+# #   readOnly: true
+
+# nodeSelector: {}
+
+# tolerations: []
+
+# affinity: {}

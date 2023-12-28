@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appName }}-deployment
+  namespace: {{ .Values.namespaceName }}
+  labels:
+    app: {{ .Values.appName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appName }}
+    spec:
+      containers:
+      - name: {{ .Values.appName }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        env:
+        - name: {{ .Values.envVar1 }}
+          value: "{{ .Values.valueVar1 }}"
+        - name: {{ .Values.envVar2 }}
+          value: "{{ .Values.valueVar2 }}"
+        - name: {{ .Values.envVar3 }}
+          value: "{{ .Values.valueVar3 }}"
