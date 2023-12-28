@@ -1,7 +1,7 @@
-resource "helm_release" "frontend-chart" {
+resource "helm_release" "frontend_chart" {
   name       = "frontend-chart"
   repository = "https://github.com/leandrohinz/kubernetes.git"
-  chart      = "frontend-chart/Chart.yaml"
+  chart      = "helm-aws/frontend-chart"
   version    = "0.1.0"
 
   values = [
