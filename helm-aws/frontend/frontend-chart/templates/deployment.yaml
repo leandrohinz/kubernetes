@@ -27,3 +27,5 @@ spec:
           value: "{{ .Values.valueVar2 }}"
         - name: {{ .Values.envVar3 }}
           value: "{{ .Values.valueVar3 }}"
+        - name: {{ .Values.envVar4 }}
+          value: "{{ .Values.valueVar4 }}"

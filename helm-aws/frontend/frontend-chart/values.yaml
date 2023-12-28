@@ -19,6 +19,9 @@ valueVar2: http://auth-api-service.leandrohinestroza.svc.cluster.local:8000
 envVar3: TODOS_API_ADDRESS
 valueVar3: http://todos-api-service.leandrohinestroza.svc.cluster.local:8082
 
+envVar4: FOR_DEPLOY
+valueVar4: TEST
+
 image:
   repository: leandrohinz/frontend
   pullPolicy: IfNotPresent
@@ -37,7 +40,7 @@ ingressPort: 8080
 ingressClassName: nginx
 
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 8080
   protocol: TCP
   targetPort: 8080
