@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-namespaceName: ns-todo-app-k8s-local-helm
+namespaceName: leandrohinestroza
 
 appName: frontend
 
@@ -14,10 +14,10 @@ envVar1: PORT
 valueVar1: 8080
 
 envVar2: AUTH_API_ADDRESS
-valueVar2: http://auth-api-service.ns-todo-app-k8s-local-helm.svc.cluster.local:8000
+valueVar2: http://auth-api-service.leandrohinestroza.svc.cluster.local:8000
 
 envVar3: TODOS_API_ADDRESS
-valueVar3: http://todos-api-service.ns-todo-app-k8s-local-helm.svc.cluster.local:8082
+valueVar3: http://todos-api-service.leandrohinestroza.svc.cluster.local:8082
 
 image:
   repository: leandrohinz/frontend

@@ -2,14 +2,14 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-namespaceName: ns-todo-app-k8s-local-helm
+namespaceName: leandrohinestroza
 
 appName: log-message-processor
 
 replicaCount: 2
 
 envVar1: REDIS_HOST
-valueVar1: redis-service.ns-todo-app-k8s-local-helm.svc.cluster.local
+valueVar1: redis-service.leandrohinestroza.svc.cluster.local
 
 envVar2: REDIS_PORT
 valueVar2: 6379
