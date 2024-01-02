@@ -8,13 +8,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Clone repository') {
-            steps {
-                git credentialsId: 'git', url: 'https://github.com/leandrohinz/kubernetes.git'
-            }
-       
-        }
-    
+   
         stage('Terraform Init') {
             steps {
                 sh 'cd /helm-aws/frontend && terraform init'
