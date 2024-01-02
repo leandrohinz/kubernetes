@@ -3,6 +3,7 @@ resource "helm_release" "users-api-chart" {
   repository = "https://github.com/leandrohinz/kubernetes.git"
   chart      = "./users-api-chart"
   version    = "0.1.0"
+  namespace  = "leandrohinestroza"
 
   values = [
     "${file("./users-api-chart/values.yaml")}"
