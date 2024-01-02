@@ -14,10 +14,16 @@ pipeline {
                 sh 'cd helm-aws/frontend && terraform init'
             }
         }
+    
+        stage('Terraform Plan') {
+            steps {
+                sh 'cd helm-aws/frontend && terraform plan -out=tfplan'
+            }
+        }
 
         stage('Terraform Apply') {
             steps {
-                sh 'cd helm-aws/frontend && terraform apply -auto-approve'
+                sh 'cd helm-aws/frontend && terraform apply -auto-approve tfplan'
             }
         }
     
