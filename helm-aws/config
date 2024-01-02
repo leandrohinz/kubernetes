@@ -1,0 +1,58 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1USXlNREUyTkRreU1sb1hEVE16TVRJeE56RTJORGt5TWxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTFlYCnE4S1kydjZhV09YL1ZwWVVmeTdTK1FMVFVCNkVPSmM5T2NJWVhNZFNqaGJSVklKNndmamhVZUx5bWMxOFNpTkgKWGdkZU5HZDFNQUhvTU5odWRkUERWNUEvdU80Nnh4b29ZVVJMRVVvV3dOSmJjUlVxUVRlYWFlSDM0QXdiazFUeQpxM1hXSU0zeWR3TWgzVW1FaFhrZmNzZW1ZNnVHaTFBcmN3MzdndFpvaUVuQnVEdUJDdEJZZ3pubEJzSWFJRE8xCmh0UjZ1UU5iVENtUXZEV0Zpa3piTlVXbXpKNVRUb1ppMTErd3J5dlh0TGZTSGhhcWtzTUF4TDhFQ0lLSm90RUgKY3gwSnZ6UEJVazVWTWtoY0g2N3RQN05lZ3IrKzBCTGlqTld3MU1wQmJoY0xrbU50ZENsR3M0aFhBU1h5c0RwNQpiSHloa2NOT0NYR2hBRG5mY2hrQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZMOXZabjJqRi84djIxRkZhNGJibnpkdUJFUGRNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBR0EwQ0djc3Vha2orbiszVUphNApmb0ROYm5MdWRoUit1R0l3VVdJMlgrMGs3YkdCQUZPQTJ4MVRSalAvbVRWU2RnL2hQWkNtaXlubWd1clVGVjlYClRCWjFsd0hreHA4RWttbklpV0JmRllpMm51NzV6Qi9yaXFtUEJBc0JXeTV4RWp2R29IMzE4c2liaGFHZGY0VkIKbkVWb3BoejBQSmEwMWRlcVEzU0pSd3hCNURPbnVUWjVXSGpJc0VjQzVoNU5tSURPSzF1MkI4d0hOYWV1N2dhRQppYTExb2VpbFNLZlg2UVplRmxZMENIZC9iY3MzYXZvaUJEbnZiVkJlRGNsZU1qeko4NDUvcEhhN1BHV0VxSEw1Cko4MmE2b1lzdlNzcXpsZkljNEdsUkFTOTBqYWhJejJyNlF1cCs3SWZhcDNhWG91cDVSTlVKNlExdTNJcTNGU1cKZHRNPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    server: https://7B7D63F472B91FEB9EF77F6738868CDA.yl4.us-west-1.eks.amazonaws.com
+  name: arn:aws:eks:us-west-1:961518039473:cluster/ramp-up-k8s
+- cluster:
+    certificate-authority: /home/leandroid/.minikube/ca.crt
+    extensions:
+    - extension:
+        last-update: Tue, 26 Dec 2023 10:08:14 -05
+        provider: minikube.sigs.k8s.io
+        version: v1.32.0
+      name: cluster_info
+    server: https://127.0.0.1:32769
+  name: minikube
+contexts:
+- context:
+    cluster: arn:aws:eks:us-west-1:961518039473:cluster/ramp-up-k8s
+    namespace: leandrohinestroza
+    user: arn:aws:eks:us-west-1:961518039473:cluster/ramp-up-k8s
+  name: arn:aws:eks:us-west-1:961518039473:cluster/ramp-up-k8s
+- context:
+    cluster: minikube
+    extensions:
+    - extension:
+        last-update: Tue, 26 Dec 2023 10:08:14 -05
+        provider: minikube.sigs.k8s.io
+        version: v1.32.0
+      name: context_info
+    namespace: default
+    user: minikube
+  name: minikube
+current-context: arn:aws:eks:us-west-1:961518039473:cluster/ramp-up-k8s
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:us-west-1:961518039473:cluster/ramp-up-k8s
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - us-west-1
+      - eks
+      - get-token
+      - --cluster-name
+      - ramp-up-k8s
+      - --output
+      - json
+      command: aws
+      env: null
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: minikube
+  user:
+    client-certificate: /home/leandroid/.minikube/profiles/minikube/client.crt
+    client-key: /home/leandroid/.minikube/profiles/minikube/client.key
