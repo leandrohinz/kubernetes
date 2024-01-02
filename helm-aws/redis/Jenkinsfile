@@ -17,13 +17,13 @@ pipeline {
     
         stage('Terraform Init') {
             steps {
-                sh 'cd /helm-aws/frontend && terraform init'
+                sh 'cd /helm-aws/redis && terraform init'
             }
         }
 
         stage('Terraform Apply') {
             steps {
-                sh 'cd /helm-aws/frontend && terraform apply -auto-approve'
+                sh 'cd /helm-aws/redis && terraform apply -auto-approve'
             }
         }
     
